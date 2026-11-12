@@ -6,10 +6,12 @@ from app.api import (
     dashboard,
     fingerprints,
     ideas,
+    provenance,
     public_records,
     public_verification,
     registrations,
     sharing,
+    teams,
     uploads,
     versions,
     zkp,
@@ -30,4 +32,6 @@ api_router.include_router(sharing.router)
 api_router.include_router(sharing.public_router)
 api_router.include_router(ideas.router)
 api_router.include_router(versions.router)
+api_router.include_router(provenance.router)
+api_router.include_router(teams.router)
 
