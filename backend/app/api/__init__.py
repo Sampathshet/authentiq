@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from app.api import (
     admin,
     alerts,
+    audit,
     auth,
     dashboard,
     disputes,
@@ -10,10 +11,13 @@ from app.api import (
     ideas,
     integrity,
     ledger,
+    notifications,
     provenance,
     public_records,
     public_verification,
     registrations,
+    search,
+    settings,
     sharing,
     teams,
     transfers,
@@ -44,4 +48,8 @@ api_router.include_router(transfers.router)
 api_router.include_router(disputes.router)
 api_router.include_router(ledger.router)
 api_router.include_router(integrity.router)
+api_router.include_router(notifications.router)
+api_router.include_router(audit.router)
+api_router.include_router(search.router)
+api_router.include_router(settings.router)
 
