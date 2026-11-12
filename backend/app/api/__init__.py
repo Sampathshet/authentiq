@@ -6,6 +6,7 @@ from app.api import (
     fingerprints,
     registrations,
     uploads,
+    zkp,
 )
 
 api_router = APIRouter()
@@ -14,4 +15,5 @@ api_router.include_router(dashboard.router)
 api_router.include_router(registrations.router)
 api_router.include_router(fingerprints.router)
 api_router.include_router(uploads.router)
+api_router.include_router(zkp.router)
 
