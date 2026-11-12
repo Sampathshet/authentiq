@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+*.pyo
+.venv
+authentiq.db
+.pytest_cache
+tests
+test_integration_manual.py
+fix_test.py
+.env
