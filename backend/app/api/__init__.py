@@ -8,6 +8,7 @@ from app.api import (
     public_records,
     public_verification,
     registrations,
+    sharing,
     uploads,
     zkp,
 )
@@ -23,4 +24,6 @@ api_router.include_router(admin.router)
 api_router.include_router(public_verification.router)
 api_router.include_router(public_verification.public_fingerprints)
 api_router.include_router(public_records.router)
+api_router.include_router(sharing.router)
+api_router.include_router(sharing.public_router)
 
