@@ -1,0 +1,36 @@
+name: authentiq
+
+# The database is an external PostgreSQL instance (Neon by default) configured
+# through AUTHENTIQ_DATABASE_URL in .env. No local database container is needed.
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env
+    environment:
+      AUTHENTIQ_STORAGE_DIR: /data/storage
+      AUTHENTIQ_UPLOAD_DIR: /data/storage/uploads
+      AUTHENTIQ_EVIDENCE_DIR: /data/storage/evidence
+      AUTHENTIQ_LEDGER_FILE: /data/storage/ledger.jsonl
+      AUTHENTIQ_PUBLIC_APP_URL: http://localhost:8080
+    volumes:
+      - authentiq_data:/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: /api
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  authentiq_data:
