@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Funnel Display";
+  src: url("/fonts/Funnel_Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Funnel Display";
+  src: url("/fonts/Funnel_Display-Bold.woff2") format("woff2");
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Turret Road";
+  src: url("/fonts/Turret_Road-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --paper: #ffffff;
+    --light: #eaeaea;
+    --dark: #171717;
+    --lime: #b7ff00;
+    --line: 1px solid var(--dark);
+    --font-sans: "Funnel Display", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Turret Road", "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 77 100% 50%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 0% 9%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 77 100% 50%;
+    --success-foreground: 0 0% 9%;
+    --warning: 0 0% 27%;
+    --warning-foreground: 0 0% 100%;
+    --danger: 0 0% 9%;
+    --danger-foreground: 0 0% 100%;
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 0 0% 9%;
+    --radius: 0.5rem;
+    --chart-line: #171717;
+    --chart-grid: rgba(23, 23, 23, 0.12);
+    --chart-label: #888888;
+    --chart-tooltip-bg: #ffffff;
+    --chart-tooltip-border: rgba(23, 23, 23, 0.2);
+    --chart-tooltip-text: #171717;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--lime);
+    color: var(--dark);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(23, 23, 23, 0.22);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(23, 23, 23, 0.38);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+@layer utilities {
+  .hash-text {
+    @apply font-mono text-[11px] tracking-tight text-muted-foreground;
+    word-break: break-all;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(23, 23, 23, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 23, 23, 0.06) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  .radial-glow {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .text-gradient {
+    color: var(--dark);
+    border-bottom: 0.16em solid var(--lime);
+    padding-bottom: 0.06em;
+  }
+
+  .animate-in-up {
+    animation: inUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes inUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pulse-dot {
+    box-shadow: 0 0 0 0 rgba(183, 255, 0, 0.6);
+    animation: pulseDot 2.4s infinite;
+  }
+
+  @keyframes pulseDot {
+    0% {
+      box-shadow: 0 0 0 0 rgba(183, 255, 0, 0.45);
+    }
+    70% {
+      box-shadow: 0 0 0 7px rgba(183, 255, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(183, 255, 0, 0);
+    }
+  }
+}
