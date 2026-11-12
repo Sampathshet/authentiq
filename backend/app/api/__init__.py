@@ -5,8 +5,11 @@ from app.api import (
     alerts,
     auth,
     dashboard,
+    disputes,
     fingerprints,
     ideas,
+    integrity,
+    ledger,
     provenance,
     public_records,
     public_verification,
@@ -38,4 +41,7 @@ api_router.include_router(provenance.router)
 api_router.include_router(teams.router)
 api_router.include_router(alerts.router)
 api_router.include_router(transfers.router)
+api_router.include_router(disputes.router)
+api_router.include_router(ledger.router)
+api_router.include_router(integrity.router)
 
