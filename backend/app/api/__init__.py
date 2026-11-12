@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.api import (
+    admin,
     auth,
     dashboard,
     fingerprints,
@@ -16,4 +17,5 @@ api_router.include_router(registrations.router)
 api_router.include_router(fingerprints.router)
 api_router.include_router(uploads.router)
 api_router.include_router(zkp.router)
+api_router.include_router(admin.router)
 
