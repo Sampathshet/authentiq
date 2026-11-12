@@ -5,11 +5,13 @@ from app.api import (
     auth,
     dashboard,
     fingerprints,
+    ideas,
     public_records,
     public_verification,
     registrations,
     sharing,
     uploads,
+    versions,
     zkp,
 )
 
@@ -26,4 +28,6 @@ api_router.include_router(public_verification.public_fingerprints)
 api_router.include_router(public_records.router)
 api_router.include_router(sharing.router)
 api_router.include_router(sharing.public_router)
+api_router.include_router(ideas.router)
+api_router.include_router(versions.router)
 
