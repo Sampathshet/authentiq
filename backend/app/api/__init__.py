@@ -5,6 +5,8 @@ from app.api import (
     auth,
     dashboard,
     fingerprints,
+    public_records,
+    public_verification,
     registrations,
     uploads,
     zkp,
@@ -18,4 +20,7 @@ api_router.include_router(fingerprints.router)
 api_router.include_router(uploads.router)
 api_router.include_router(zkp.router)
 api_router.include_router(admin.router)
+api_router.include_router(public_verification.router)
+api_router.include_router(public_verification.public_fingerprints)
+api_router.include_router(public_records.router)
 
