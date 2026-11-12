@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+*.py text diff=python
+*.ts text diff=typescript
+*.tsx text diff=typescript
+*.js text diff=javascript
+*.sol text
+*.circom text
+*.md text
+*.json text
+*.yml text
+*.css text
+*.html text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff2 binary
+*.ttf binary
+*.db binary
+*.aqenc binary
