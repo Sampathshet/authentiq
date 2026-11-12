@@ -1,0 +1,17 @@
+{
+  "name": "authentiq-circuits",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "circom ownership.circom --r1cs --wasm --sym -o build",
+    "setup": "snarkjs groth16 setup build/ownership.r1cs build/pot14_final.ptau build/ownership_0000.zkey",
+    "contribute": "snarkjs zkey contribute build/ownership_0000.zkey build/ownership_final.zkey --name=\"AUTHENTIQ ownership ceremony\"",
+    "export": "snarkjs zkey export verificationkey build/ownership_final.zkey build/verification_key.json",
+    "prove": "snarkjs groth16 fullprove build/input.json build/ownership_js/ownership.wasm build/ownership_final.zkey build/proof.json build/public.json",
+    "verify": "snarkjs groth16 verify build/verification_key.json build/public.json build/proof.json"
+  },
+  "devDependencies": {
+    "circomlib": "^2.0.5",
+    "snarkjs": "^0.7.5"
+  }
+}
